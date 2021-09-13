@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index() {
     	$data = Product::all();
         $response = [
-            'message' => 'Show all products.'
+            'message' => 'Show all products.',
             'data' => $data
         ];
 
@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function show($id) {
     	$data = Product::findOrFail($id);
         $response = [
-            'message' => 'Show product success.'
+            'message' => 'Show product success.',
             'data' => $data
         ];
 
@@ -31,7 +31,7 @@ class ProductController extends Controller
     public function store(Request $request) {
     	$data = Product::create($request->all());
         $response = [
-            'message' => 'Product added.'
+            'message' => 'Product added.',
             'data' => $data
         ];
 
@@ -41,8 +41,13 @@ class ProductController extends Controller
     public function update(Request $request, $id) {
     	$data = Product::findOrFail($id);
     	$data->update($request->all());
+    	// $data->user_id = $request['user_id'];
+    	// $data->nama_produk = $request['nama_produk'];
+    	// $data->harga = $request['harga'];
+    	// $data->status = $request['status'];
+    	// $data->save();
         $response = [
-            'message' => 'Product updated.'
+            'message' => 'Product updated.',
             'data' => $data
         ];
 

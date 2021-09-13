@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $data = User::all();
         $response = [
-            'message' => 'Show all users.'
+            'message' => 'Show all users.',
             'data' => $data
         ];
 
