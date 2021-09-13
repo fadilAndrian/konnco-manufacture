@@ -12,19 +12,15 @@ class ProfileController extends Controller
 	public function show($id) {
     	$data = Profile::findOrFail($id);
         $response = [
-            'message' => 'Show success.'
+            'message' => 'Show profile success.',
+            'data' => $data
         ];
 
         return Response()->json($response, 200);
-
     }
 
     public function store(Request $request) {
-    	$data = Profile::create([
-    		'notlp' => $request['notlp'],
-    		'alamat' => $request['alamat'],
-    		'user_id' => Auth()->user()->id,
-    	]);
+    	$data = Profile::create($request->all());
     	$response = [
             'message' => 'Profile added.',
             'data' => $data
